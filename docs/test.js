@@ -1,4 +1,4 @@
-import {gamepads, XboxKeys} from '../src/index.js'
+import {gamepads, XboxKeys} from './src/index.js'
 
 const ls = document.getElementById('ls'),
     rs = document.getElementById('rs'),
