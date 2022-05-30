@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Xbox Controller!!!</title>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0px;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 500px;
+            height: fit-content;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stick {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border: solid 2px gray;
+            border-radius: 50%;
+            margin: 24px;
+        }
+
+        .stick > div {
+            --top: 50%;
+            --left: 50%;
+
+            position: absolute;
+            top: var(--top);
+            left: var(--left);
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background-color: cadetblue;
+            border-radius: 50%;
+        }
+
+        .ls::after {
+            content: 'Left Stick';
+            position: absolute;
+            top: -24px;
+        }
+
+        .rs::after {
+            content: 'Right Stick';
+            position: absolute;
+            top: -24px;
+        }
+
+        .btn {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            border: solid 2px gray;
+        }
+
+        .btn::after {
+            content: attr(id);
+        }
+
+        .pad {
+            width: 76px;
+            height: 76px;
+            margin: 48px;
+            position: relative;
+        }
+
+        .abs {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn.d {
+            border-radius: 0;
+        }
+        .btn.d::after {
+            font-size: small;
+        }
+
+        .pad.d {
+            width: 84px;
+            height: 84px;
+        }
+
+        .btn.long {
+            margin: 0 24px;
+            border-radius: 0;
+            width: 100px;
+        }
+
+        .trigger {
+            --progress: 0%;
+            text-align: center;
+            margin: 0 24px;
+            width: 160px;
+            position: relative;
+            border: solid 2px gray;
+        }
+        .trigger::after {
+            content: attr(id);
+        }
+        .trigger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: var(--progress);
+            height: 100%;
+            background-color: aqua;
+        }
+
+    </style>
+
+    <div class="container">
+        <div class="container" style="width: 100%;">
+            <div class="trigger" id="LT"></div>
+            <div class="trigger" id="RT"></div>
+        </div>
+        <div class="container" style="width: 100%; margin: 24px 0;">
+            <div class="btn long" id="LB"></div>
+            <div style="display:flex">
+                <div class="btn d" id="menu"></div>
+                <div class="btn d" id="view"></div>
+            </div>
+            <div class="btn long" id="RB"></div>
+        </div>
+
+        <div class="stick ls" id="ls">
+            <div id="lsb"></div>
+        </div>
+
+        <div class="pad">
+            <div class="btn abs" id="A" style="top: 100%"></div>
+            <div class="btn abs" id="B" style="left: 100%"></div>
+            <div class="btn abs" id="X" style="left: 0"></div>
+            <div class="btn abs" id="Y" style="top: 0"></div>
+        </div>
+
+        <div class="pad d">
+            <div class="btn abs d" id="down" style="top: 100%; border-top: none;"></div>
+            <div class="btn abs d" id="right" style="left: 100%; border-left: none;"></div>
+            <div class="btn abs d" id="left" style="left: 0; border-right: none;"></div>
+            <div class="btn abs d" id="up" style="top: 0; border-bottom: none;"></div>
+        </div>
+
+        <div class="stick rs" id="rs">
+            <div id="rsb"></div>
+        </div>
+    </div>
+
+    <script src="./test.js" type="module"></script>
+</body>
+</html>
