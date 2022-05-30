@@ -69,7 +69,7 @@ class GameController extends EventEmitter {
     addPressListener(buttonIndex, handler) {
         this.on(`press-${buttonIndex}`, handler)
     }
-    removePressListener() {
+    removePressListener(buttonIndex, handler) {
         this.off(`press-${buttonIndex}`, handler)
     }
 
@@ -197,7 +197,7 @@ function init() {
                 con.emit('value', btnIndex, 0)
             }
         } else {
-            con.emit('value', btnIndex, newVal.value)
+            con.emit('value', btnIndex, newVal.value, oldVal.value)
         }
     
     })
