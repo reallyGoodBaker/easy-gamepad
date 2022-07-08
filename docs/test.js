@@ -21,8 +21,8 @@ const ls = document.getElementById('ls'),
 
 function bindAxel(controller, element, axelIndex, propName) {
     controller.addAxelChangeListener(axelIndex, val => {
-        val = 100 * ((val/2) + 0.5)
-        element.style.setProperty(propName, val + '%')
+        val = 124 * (val + 1)/2
+        element.style.setProperty(propName, val + 'px')
     })
 }
 
