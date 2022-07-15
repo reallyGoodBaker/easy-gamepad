@@ -17,7 +17,8 @@ const ls = document.getElementById('ls'),
     lb = document.getElementById('LB'),
     rb = document.getElementById('RB'),
     lt = document.getElementById('LT'),
-    rt = document.getElementById('RT')
+    rt = document.getElementById('RT'),
+    home = document.getElementById('Home')
 
 function bindAxel(controller, element, axelIndex, propName) {
     controller.addAxelChangeListener(axelIndex, val => {
@@ -75,6 +76,8 @@ gamepads.onConnect(controller => {
 
     bindValue(controller, lt, XboxKeys.LT)
     bindValue(controller, rt, XboxKeys.RT)
+
+    bindKey(controller, home, XboxKeys.Home)
 })
 
 gamepads.onDisconnect(con => {
