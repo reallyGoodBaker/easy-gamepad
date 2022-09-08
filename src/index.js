@@ -63,6 +63,7 @@ class GameController extends EventEmitter {
                 duration: time,
                 strongMagnitude, weakMagnitude
             })
+            return
         }
     }
 
